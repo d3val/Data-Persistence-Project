@@ -40,24 +40,9 @@ public class ScoreManager : MonoBehaviour
         public string name;
     }
 
-    public void LoadMainScene()
-    {
-        SceneManager.LoadScene(1);
-    }
+    
 
-    public void ReturnToMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
 
-    public void Quit()
-    {
-#if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
-#else
-        Application.Quit();
-#endif
-    }
 
     public static void SaveMaxScore()
     {
@@ -70,7 +55,7 @@ public class ScoreManager : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
-    public void LoadMaxScore()
+    public static void LoadMaxScore()
     {
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
@@ -83,9 +68,5 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void ReadName()
-    {
-        Text nameField = GameObject.Find("IF Name").transform.GetChild(2).GetComponent<Text>();
-        playerName = nameField.text;
-    }
+    
 }

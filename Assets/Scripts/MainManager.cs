@@ -38,6 +38,7 @@ public class MainManager : MonoBehaviour
             }
         }
 
+        ScoreManager.LoadMaxScore();
         maxScoreText.text = $"Best Score : {ScoreManager.maxScorePlayerName} : {ScoreManager.maxScore}";
         AddPoint(0);
     }
